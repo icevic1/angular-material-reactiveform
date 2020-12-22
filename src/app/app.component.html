@@ -1,0 +1,59 @@
+<div class="center" layout-align="start center" flex layout="row">
+  <button mat-button
+          (click)="openDialog()"
+  >{{'Add Information'.toUpperCase()}}
+  </button>
+</div>
+
+<ng-template #emptyEntriesTpl><p class="center">No entries, please press "ADD INFORMARION" button</p></ng-template>
+<div  class="content" fxLayout='row' fxLayoutWrap class="cards">
+
+  <div *ngIf="entries?.length; else emptyEntriesTpl" fxFlex="20" class="cards-list">
+
+    <mat-card class="card-entry" *ngFor="let entry of entries">
+      <mat-card-header>
+        <mat-card-title><h1>Thank You!</h1></mat-card-title>
+        <mat-card-subtitle>You have successfully added your details</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <table cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <div>Name:</div>
+              <p class="mat-card-subtitle">{{entry.name}}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div>Age:</div>
+              <p class="mat-card-subtitle">{{entry.age}}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div>Email:</div>
+              <p class="mat-card-subtitle">{{entry.email}}</p>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div>Gender:</div>
+              <p class="mat-card-subtitle">{{entry.gender}}</p>
+            </td>
+          </tr>
+        </table>
+
+        <!--{{entry|json}}-->
+
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>
+<!-- Copyright 2020 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
